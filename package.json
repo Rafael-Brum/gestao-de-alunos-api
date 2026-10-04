@@ -1,7 +1,7 @@
 {
   "name": "gestao-de-alunos-api",
   "version": "1.0.0",
-  "description": "API REST para gestão de alunos, disciplinas, notas e trabalhos, com banco de dados em memória.",
+  "description": "API REST para gestão de alunos, disciplinas, notas e trabalhos, com persistência em MongoDB.",
   "main": "src/server.js",
   "type": "module",
   "scripts": {
@@ -14,9 +14,11 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
+    "esm": "^3.2.25",
     "express": "^4.19.2",
     "js-yaml": "^4.1.0",
     "jsonwebtoken": "^9.0.2",
+    "mongoose": "^9.9.3",
     "morgan": "^1.10.0",
     "swagger-ui-express": "^5.0.1"
   },
