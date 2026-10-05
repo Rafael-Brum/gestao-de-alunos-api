@@ -1,0 +1,12 @@
+{
+  "novoAluno": {
+    "nome": "Carlos Silva",
+    "email": "carlos.silva@example.com",
+    "matricula": "2026999",
+    "senha": "123456"
+  },
+  "trabalho": {
+    "disciplinaId": "disciplina-matematica",
+    "titulo": "Lista de Exercícios 2"
+  }
+}
