@@ -1,25 +1,24 @@
-const request = require('supertest');
-require('dotenv').config();
+import request from 'supertest';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
 
-async function loginAdmin() {
-  const response = await request(BASE_URL)
-    .post('api/auth/login') // Ajuste a rota de login de acordo com a API real
-    .send({
-      email: process.env.ADMIN_EMAIL,
-      senha: process.env.ADMIN_PASSWORD
-    });
-  
-  return response.body.token; // Retorna o token JWT de admin
-}
-
-async function loginAluno(email, senha) {
-  const response = await request(BASE_URL)
-    .post('api/auth/login') // Rota de login de usuário/aluno
+export async function loginAdmin(appInstance = BASE_URL, email = process.env.ADMIN_EMAIL || 'admin@escola.com', senha = process.env.ADMIN_PASSWORD || 'admin123') {
+  const response = await request(appInstance)
+    .post('/api/auth/login')
     .send({ email, senha });
-  
-  return response.body.token; // Retorna o token JWT do aluno
+
+  return response.body.token;
 }
 
-module.exports = { loginAdmin, loginAluno };
+export async function loginAluno(appInstance = BASE_URL, email, senha) {
+  const response = await request(appInstance)
+    .post('/api/auth/login')
+    .send({ email, senha });
+
+  return response.body.token;
+}
+
+export default { loginAdmin, loginAluno };
